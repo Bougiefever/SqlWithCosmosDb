@@ -1,0 +1,36 @@
+﻿@model InventoryPoc.Data.Models.Inventory.Occupancy[]
+<table class="table" id="occupancyTable">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model[0].OccupancyCode)</th>
+        <th>@Html.DisplayNameFor(model => model[0].OccupancyPercent)</th>
+    </tr>
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+        <tr>
+            <td>
+                @Html.EditorFor(model => model[i].OccupancyCode, new {htmlAttributes = new {@class = "form-control"}})
+            </td>
+            <td>
+                @Html.EditorFor(model => model[i].OccupancyPercent, new {htmlAttributes = new {@class = "form-control"}})
+            </td>
+        </tr>
+    }
+</table>
+<button type="button" class="btn btn-default" name="addCode" onclick="addOccupancyCode()">Add Code</button>
+<script>
+    function addOccupancyCode() {
+        var table = $('#occupancyTable');
+        var body = table.find('tbody');
+        var i = body.children().length - 1;
+        body.append(
+            '<tr><td><select class="form-control valid" data-val="true" data-val-required="The Code field is required." id="OccupancyList_' +
+            i +
+            '__OccupancyCode" name="OccupancyList[' +
+            i +
+            '].OccupancyCode"><option value="">Occupancy Code</option><option selected="selected" value="1">Code 1</option><option value="2">Code 2</option><option value="3">Code 3</option></select></td><td><input class="form-control text-box single-line" data-val="true" data-val-number="The field OccupancyPercent must be a number." data-val-required="The OccupancyPercent field is required." id="OccupancyList_' +
+            i +
+            '__OccupancyPercent" name="OccupancyList[' +
+            i +
+            '].OccupancyPercent" type="text" value="75"></td></tr>');
+    }
+</script>

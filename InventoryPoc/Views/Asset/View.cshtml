@@ -1,0 +1,68 @@
+﻿@model IEnumerable<InventoryPoc.Data.Models.Inventory.Building>
+
+<h2>Buildings For Group @ViewBag.GroupName </h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearBuilt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingEnvironmentFactors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FloodZoneCertificationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearBuilt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingEnvironmentFactors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FloodZoneCertificationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+            </td>
+        </tr>
+    }
+
+</table>

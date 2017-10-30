@@ -1,0 +1,58 @@
+﻿@model InventoryPoc.Data.Models.Profile.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesForceAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesForceAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Industry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Industry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubIndustry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubIndustry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

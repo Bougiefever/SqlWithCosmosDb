@@ -1,0 +1,35 @@
+﻿@model InventoryPoc.Data.Models.Inventory.CustomData[]
+<table class="table" id="customDataTable">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model[0].Name)</th>
+        <th>@Html.DisplayNameFor(model => model[0].Value)</th>
+    </tr>
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+        <tr>
+            <td>
+                @Html.EditorFor(model => model[i].Name, new {htmlAttributes = new {@class = "form-control"}})
+            </td>
+            <td>
+                @Html.EditorFor(model => model[i].Value, new {htmlAttributes = new {@class = "form-control"}})
+            </td>
+        </tr>
+    }
+</table>
+<button type="button" class="btn btn-default" name="addItem" onclick="addCustomDataItem()">Add Custom Data Item</button>
+<script>
+    function addCustomDataItem() {
+        var table = $('#customDataTable');
+        var body = table.find('tbody');
+        var i = body.children().length - 1;
+        body.append('<tr><td><input class="form-control text-box single-line" id="CustomDataList_' +
+            i +
+            '__Name" name="CustomDataList[' +
+            i +
+            '].Name" type="text" placeholder="Enter name of data item"></td><td><input class="form-control text-box single-line" id="CustomDataList_' +
+            i +
+            '__Value" name="CustomDataList[' +
+            i +
+            '].Value" type="text" placeholder="Enter value"></td></tr>');
+    }
+</script>

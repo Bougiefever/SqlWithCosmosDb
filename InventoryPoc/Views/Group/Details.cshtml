@@ -1,0 +1,86 @@
+﻿@model InventoryPoc.Data.Models.Profile.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Group</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract.ProjectCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract.ProjectCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.MemberName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.MemberName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupNumber)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div class="btn-group">
+    <button type="button" class="btn btn-default" onclick="showAssets();">Assets</button>
+    <button type="button" class="btn btn-default" onclick="showInsuranceAssets();">Insurance Assets</button>
+    <button type="button" class="btn btn-default" onclick="showAccountingAssets();">Account Assets</button>
+</div>
+<div id="assets" style="display: none">
+    @{ Html.RenderAction("GetAssets", new {id = Model.Id}); }
+</div>
+<div id="insuranceAssets" style="display: none">
+    @{ Html.RenderAction("GetInsuranceAssets", new {id = Model.Id}); }
+</div>
+<div id="accountingAssets" style="display: none">
+    @{ Html.RenderAction("GetAccountingAssets", new {id = Model.Id}); }
+</div>
+@section scripts {
+    <script>
+        function showAssets() {
+            $('#assets').show();
+            $('#insuranceAssets').hide();
+            $('#accountingAssets').hide();
+        }
+
+        function showInsuranceAssets() {
+            $('#assets').hide();
+            $('#insuranceAssets').show();
+            $('#accountingAssets').hide();
+        }
+
+        function showAccountingAssets() {
+            $('#assets').hide();
+            $('#insuranceAssets').hide();
+            $('#accountingAssets').show();
+        }
+    </script>
+}
